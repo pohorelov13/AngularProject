@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>Notes</span>
+</mat-toolbar>
+
+<div class="container">
+  <p>Search notes...</p>
+  <app-search-input (textChange)="this.onTextChange($event)"></app-search-input>
+  <div><button mat-raised-button color="primary" (click)="this.router.navigate(['/new'])">Add New Note</button></div>
+  <ng-container *ngIf="(results$ | async) || (notes$ | async) as results ">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let note of results " (click)="this.router.navigate(['/note', note.id])">
+      <h4 matLine>{{ note.header }}</h4>
+    </mat-list-item>
+  </mat-nav-list>
+  </ng-container>
+</div>

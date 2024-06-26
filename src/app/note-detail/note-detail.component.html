@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>{{ note?.header }}</span>
+</mat-toolbar>
+
+<div class="container" *ngIf="note">
+  <mat-card>
+    <mat-card-title>{{ note.header }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ note.text }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editNote()">Edit</button>
+      <button mat-button color="warn" (click)="deleteNote()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
